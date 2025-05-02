@@ -2,6 +2,7 @@
 
 /* tailwind works fine, we have written CSS to provide a centralized design system */
 
+/* Aura Background */
 @theme inline {
   --animate-aurora: aurora 60s linear infinite;
   @keyframes aurora {
@@ -13,6 +14,7 @@
     }
   }
 }
+
 /* ===== BASE STYLES ===== */
 :root {
   --text-color: #ffffff;
