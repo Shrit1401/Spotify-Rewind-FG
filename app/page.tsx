@@ -7,14 +7,14 @@ const Home = () => {
       <div className="container">
         <div className="header">
           <div className="header-title">
-            <h1>Rude Spotify Rewind</h1>
+            <h1>sup, insert your headline here</h1>
           </div>
           <div className="header-subtitle">
-            <h2>Exposing your terrible music taste with zero mercy by Shrit</h2>
+            <h2>insert your subtitle here</h2>
           </div>
 
           <div className="button-container">
-            <Link href="/api/auth">
+            <Link href="/rewind">
               <button className="button">Login with Spotify</button>
             </Link>
           </div>
