@@ -33,31 +33,24 @@ export const generateVideoFacts = async (
   const safeGenres = genres || [];
 
   const prompt = `
-    As a music psychologist and cultural analyst, create deeply personalized insights for a Spotify user.
-    Connect dots in their listening patterns to reveal fascinating insights about who they are.
-    Keep it casual, simple, and emotional — speak like you're narrating their story.
-    Write insights in short, clean captions that will appear on a Spotify Rewind-style video.
+    As a brutally honest music critic with zero patience, create harshly accurate roasts for this Spotify user.
+    Don't sugarcoat their questionable taste. Be sarcastic, witty, and slightly offensive - but keep it funny.
+    Write short, punchy captions that will appear on a "Your Music Roast" style video.
 
-    don't use any year or date references, just focus on the music and the user.
-    also don't mention Spotify or any other platform.
-    Use the user's top tracks, artists, genres, and recent plays to create a narrative.
-    Use the user's recent plays and new discoveries to create a narrative.
-    Use the user's top tracks and artists to create a narrative.
-    Use the user's favorite genres to create a narrative.
-    Use the user's recent plays to create a narrative.
-    Use the user's new discoveries to create a narrative.
+    Don't use any year or date references, just focus on mocking their terrible music choices.
+    No mentions of Spotify or platforms - focus on destroying their musical identity.
+    Use their tracks, artists, genres, and plays to create a savage narrative.
     
-  
-    Each insight must:
-    - Be between 3 and 5 words
+    Each roast must:
+    - Be between 3-5 words
     - No emojis, no markdown
-    - Feel nostalgic, comforting, and emotionally insightful
-    - Use precise details from their year in music to reflect their personality and journey
+    - Be humorously judgmental without crossing the line
+    - Use their specific music choices to deliver stinging but funny observations
   
     Format strictly like:
-    Music was your safe place  
-    Hip-hop lit your soul  
-    Emotions flowed with Taylor
+    Basic taste detected
+    Really? This garbage?
+    Taylor? How original
   
     USER PROFILE:
     Name: ${userProfile?.display_name || "Music Fan"}
@@ -115,13 +108,13 @@ export const generateVideoFacts = async (
       .filter(Boolean)
       .join(", ")}
   
-    Generate 6 short, insight captions:
-    1. A warm welcome line
-    2. Top tracks reflection
-    3. Top artists connection
-    4. Recent discoveries growth
-    5. Genre personality insight
-    6. Most recent mood snapshot
+    Generate 6 short, roast captions:
+    1. A sarcastic greeting
+    2. Top tracks mockery
+    3. Artist choice ridicule
+    4. New discoveries critique
+    5. Genre taste judgment
+    6. Recent plays embarrassment
   `;
 
   try {
@@ -129,8 +122,8 @@ export const generateVideoFacts = async (
     if (!response) throw new Error("Failed to generate AI response");
 
     const extractInsight = (text: string): string => {
-      // Remove leading emoji if any slipped in, trim, and return
-      return text.replace(/^[\p{Emoji}\s]+/u, "").trim();
+      // Remove leading emoji, dots or any punctuation at the start, then trim
+      return text.replace(/^[^\w\s]*\s*/u, "").trim();
     };
 
     const sections = response

@@ -10,9 +10,7 @@ const Home = () => {
             <h1>Rude Spotify Rewind</h1>
           </div>
           <div className="header-subtitle">
-            <h2>
-              providing straight from spotify to your browser by Shrit rudely
-            </h2>
+            <h2>Exposing your terrible music taste with zero mercy by Shrit</h2>
           </div>
 
           <div className="button-container">
